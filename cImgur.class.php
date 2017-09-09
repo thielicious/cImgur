@@ -11,7 +11,6 @@
 	*/
 
 
-
 	class cImgur {
 
 		public
@@ -150,7 +149,7 @@
 					$this->errors[] = "File error :( Could be incorrectly formatted or is damaged.";
 				}		
 			} else {
-				$this->errors[] = die("<span style=color:crimson>[!] No image selected.</span>");
+				$this->errors[] = "No image selected.";
 			}
 			if (count($this->errors) > 0) {
 				throw new Exception;
