@@ -45,12 +45,15 @@ This example above spits out the direct URL to the uploaded image at imgur.com. 
 **cImgur::__construct(string $clientID = NULL)** (required)
 * (optional) defines the CLIENT-ID for authorization. If you don't have a Client-ID, then visit https://api.imgur.com/oauth2/addclient to register and copy the ID. You may leave this parameter blank and add later your ID with **cImgur::clientID(string $clientID)**.<br>
 <br>
+
 **cImgur::setUploadSize(int $size)** (required)
 * defines the maximum size of images.<br>
 <br>
+
 **cImgur::setImageSize(int $width, int $height)** (optional)
 * use this method to implicitly set the image's height and width. This will check if the selected image meets the requirement.<br>
 <br>
+
 **cImgur::upload(array $file)** (required)
 * this will upload the file, if `$_FILES` is set.<br>
 <br>
