@@ -52,7 +52,7 @@ This example above spits out the direct URL to the uploaded image at imgur.com. 
 * use this method to implicitly set the image's height and width. This will check if the selected image meets the requirement.
 <br>
 **cImgur::upload(array $file)** (required)
-* this will upload the file, if $_FILES is set.
+* this will upload the file, if `$_FILES` is set.
 <br>
 **cImgur::data(const $return_type = NULL)** (required)
 * (optional) this method returns the response data encoded in JSON once the upload process to imgur.com was successful. <br>
