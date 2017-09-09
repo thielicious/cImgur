@@ -74,13 +74,13 @@ Use **print_r()** if you would like to view the whole response.<br>
 <br>
 
 **cImgur::debug()** (optional)
-* if this method is in use, it will not upload the file but an array of information of the selected file will be displayed.<br>
+* if this method is in use, it will not upload the file but an array of information of the selected file will be displayed for debugging plus the data response from imgur if available.<br>
 
 
 <br>
 <br>
 
-:new: A **[Demo](https://jsfiddle.net/Thielicious/)** has been added.
+<!--:new: A **[Demo](https://jsfiddle.net/Thielicious/)** has been added.-->
 
 <br>
 
