@@ -11,10 +11,11 @@
 	*/
 
 
+
 	class cImgur {
 
 		public
-			$clientID = "2695cd652199437",
+			$clientID = null,
 			$debug = 0;
 
 		private 
@@ -94,6 +95,9 @@
 			if ($err) {
 				$this->errors[] = "Upload Error: ".$err;
 			} else {
+				if (@count(json_decode($response)->data->error,true) > 0) {
+					$this->errors[] = "Sorry, this image file does not meet the required standards at imgur.com to be uploaded. <br> Upload denied.";
+				}
 				$this->data = $response;
 			}
 			return true;
@@ -112,48 +116,46 @@
 		}
 
 		public function upload(array $file) {
-			if ($file["error"] != 4) {
-				if ($this->debug == 1) {
-					echo "<strong>DEBUG:</strong><br>
-						<pre>".print_r($file,true)."</pre>";
-					$this->connectToImgur($file);
-					echo "<pre>".print_r(json_decode($this->data)->data,true)."</pre>";
-					exit;
-				} else {
-					if (static::error($file) == false) {
-						if (strlen($this->uploadSize) != 0) {
-							if ($file["size"] <= $this->uploadSize) {
-								if (static::checkMIME($file) == true) {
-									$size = getimagesize($file["tmp_name"]);
-									if (strlen($this->imgWidth && $this->imgHeight) != 0) {
-										if ($size[0] == $this->imgWidth && $size[1] == $this->imgHeight) {
-											$this->connectToImgur($file);
-										} else {
-											$this->errors[] = "Image size does not match (allowed: ".$this->imgWidth."x".$this->imgHeight." pixel)";
-										}
-									} else {
+			if ($this->debug == 1) {
+				echo "<strong>DEBUG:</strong><br>
+					<pre>".print_r($file,true)."</pre>";
+				$this->connectToImgur($file);
+				echo "<pre>".print_r(json_decode($this->data)->data,true)."</pre>";
+				exit;
+			} elseif ($file["error"] != 4) {
+				if (static::error($file) == false) {
+					if (strlen($this->uploadSize) != 0) {
+						if ($file["size"] <= $this->uploadSize) {
+							if (static::checkMIME($file) == true) {
+								$size = getimagesize($file["tmp_name"]);
+								if (strlen($this->imgWidth && $this->imgHeight) != 0) {
+									if ($size[0] == $this->imgWidth && $size[1] == $this->imgHeight) {
 										$this->connectToImgur($file);
+									} else {
+										$this->errors[] = "Image size does not match (allowed: ".$this->imgWidth."x".$this->imgHeight." pixel)";
 									}
 								} else {
-									$this->errors[] = "File is not an image.";
+									$this->connectToImgur($file);
 								}
 							} else {
-								$this->errors[] = "Image is too large. (max ".floor(($this->uploadSize/1024))." KB)";
+								$this->errors[] = "File is not an image.";
 							}
 						} else {
-							$this->errors[] = "Upload size not set.";
+							$this->errors[] = "Image is too large. (max ".floor(($this->uploadSize/1024))." KB)";
 						}
 					} else {
-						$this->errors[] = "File error :( Could be incorrectly formatted or is damaged.";
+						$this->errors[] = "Upload size not set.";
 					}
-					if (count($this->errors) > 0) {
-						throw new Exception();
-					} else {
-						return true;
-					}
-				}
+				} else {
+					$this->errors[] = "File error :( Could be incorrectly formatted or is damaged.";
+				}		
 			} else {
 				$this->errors[] = die("<span style=color:crimson>[!] No image selected.</span>");
+			}
+			if (count($this->errors) > 0) {
+				throw new Exception();
+			} else {
+				return true;
 			}
 		}
 
