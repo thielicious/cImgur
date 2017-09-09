@@ -153,7 +153,7 @@
 				$this->errors[] = die("<span style=color:crimson>[!] No image selected.</span>");
 			}
 			if (count($this->errors) > 0) {
-				throw new Exception();
+				throw new Exception;
 			} else {
 				return true;
 			}
