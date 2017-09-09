@@ -60,6 +60,7 @@ The following return types can be used: <br>
  > cIMGUR::RETURN_JSON (default) <br>
  > cIMGUR::RETURN_OBJECT (Std Class Object) <br>
  > cIMGUR::RETURN_ARRAY (Associative Array) <br>
+ 
 Use **print_r()** if you would like to view the whole response.<br>
 
 **cImgur::getErrors()** (optional)
@@ -72,7 +73,7 @@ Use **print_r()** if you would like to view the whole response.<br>
 <br>
 <br>
 
-:new: A **[Demo](https://jsfiddle.net/Thielicious/4oxmsy49/)** has been added.
+:new: A **[Demo](https://jsfiddle.net/Thielicious/)** has been added.
 
 <br>
 
