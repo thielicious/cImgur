@@ -7,6 +7,7 @@
 ## INTRODUCTION
 
 **cImgur** (abbr: "c" for custom) is a customized imgur remote uploader using cURL and imgur API endpoints. Made for anonymous execution, single images only.
+
 <br>
 
 ## SETUP INFORMATION
@@ -57,6 +58,7 @@ This example above spits out the direct URL to the uploaded image at imgur.com. 
 **cImgur::upload(array $file)** (required)
 * this will upload the file, if `$_FILES` is set.<br>
 <br>
+
 **cImgur::data(const $return_type = NULL)** (required)
 * (optional) this method returns the response data encoded in JSON once the upload process to imgur.com was successful. <br>
 The following return types can be used: <br>
@@ -66,9 +68,11 @@ The following return types can be used: <br>
 
 Use **print_r()** if you would like to view the whole response.<br>
 <br>
+
 **cImgur::getErrors()** (optional)
 * through a try-catch block it might throw an exception when the upload has failed. You can check out the errors with this method, which returns an `Array`.<br>
 <br>
+
 **cImgur::debug()** (optional)
 * if this method is in use, it will not upload the file but an array of information of the selected file will be displayed.<br>
 
