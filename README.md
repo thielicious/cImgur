@@ -1,12 +1,12 @@
 # cImgur
-##### Simple image uploader to imgur.com packed in a class
+##### Simple image uploader to imgur.com packed in a PHP class
 ---
 
 <br>
 
 ## INTRODUCTION
 
-**cImgur** (abbr: "c" for custom) is a customized imgur remote uploader using cURL and imgur API endpoints. Made for anonymous execution, single images only.
+**cImgur** (abbr: "c" for custom) is a customized imgur remote uploader in PHP using cURL and imgur API endpoints. Made for anonymous execution, single images only.
 
 <br>
 
