@@ -62,9 +62,9 @@ This example above spits out the direct URL to the uploaded image at imgur.com. 
 **cImgur::data(const $return_type = NULL)** (required)
 * (optional) this method returns the response data encoded in JSON once the upload process to imgur.com was successful. <br>
 The following return types can be used: <br>
-`cIMGUR::RETURN_JSON` (default)<br>
-`cIMGUR::RETURN_OBJECT` (Std Class Object)<br>
-`cIMGUR::RETURN_ARRAY` (Associative Array)<br>
+`cImgur::RETURN_JSON` (default)<br>
+`cImgur::RETURN_OBJECT` (Std Class Object)<br>
+`cImgur::RETURN_ARRAY` (Associative Array)<br>
 
 Use **print_r()** if you would like to view the whole response.<br>
 <br>
