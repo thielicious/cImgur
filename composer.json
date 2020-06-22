@@ -1,0 +1,8 @@
+{
+    "name": "thielicious/cImgur",
+    "description": "Simple image uploader to imgur.com packed in a class.",
+    "require": {
+        "php": "^7.2",
+        "curl/curl": "^2.0"
+    }
+}
