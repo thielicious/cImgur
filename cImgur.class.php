@@ -12,6 +12,7 @@
 
 
 	class cImgur {
+		
 
 		public
 			$clientID = null,	$debug = 0;
@@ -24,48 +25,66 @@
 			RETURN_JSON = 1,	RETURN_ARRAY = 2,	RETURN_OBJECT = 3;
 		
 		public function __construct(string $cid = null) {
+			
 			if ($cid != null) {
 				$this->clientID = $cid;
 			} 
+			
 		}	
 
 		public function clientID(string $cid) { 
+			
 			$this->clientID = $cid; 
+			
 		}
 
 		public function debug() {
+			
 			$this->debug = 1;
+			
 		}
 
 		private static function error(array $file) { 
+			
 			return $file["error"] !== 0 ? 
 				true : false; 
+			
 		}
 
 		public function getErrors() { 
+			
 			if (count($this->errors) > 0) {
 				return $this->errors; 
 			}
+			
 		}
 
 		public function setUploadSize(int $usize) { 
+			
 			$this->uploadSize = $usize; 
+			
 		}
 
 		public function setImageSize(int $width, int $height) { 
+			
 			$this->imgWidth = $width;
 			$this->imgHeight = $height; 
+			
 		}
 
 		private static function checkMIME(array $file) {
+			
 			$filetype = explode("/",mime_content_type($file["tmp_name"]));
 			return $filetype[0] !== "image" ?
 				false : true;
+			
 		}
 
 		private function connectToImgur(array $file) {
+			
 			$image = @file_get_contents($file["tmp_name"]);
 			$curl = curl_init();
+			
 			curl_setopt_array(
 				$curl, [
 					CURLOPT_SSL_VERIFYPEER => false,
@@ -84,9 +103,11 @@
 					]
 				]
 			);
+			
 			$response = curl_exec($curl);
 			$err = curl_error($curl);
 			curl_close($curl);
+			
 			if ($err) {
 				$this->errors[] = "Upload Error: ".$err;
 			} else {
@@ -95,10 +116,13 @@
 				}
 				$this->data = $response;
 			}
+			
 			return true;
+			
 		}
 
 		public function data($type = null) {
+			
 			if ($type == self::RETURN_JSON || null) {
 				return $this->data; 
 			} elseif ($type == self::RETURN_OBJECT) {
@@ -108,15 +132,19 @@
 				$data = json_decode($this->data,true);
 				return $data["data"];	
 			}
+			
 		}
 
 		public function upload(array $file) {
+			
 			if ($this->debug == 1) {
+				
 				echo "<strong>DEBUG:</strong><br>
 					<pre>".print_r($file,true)."</pre>";
 				$this->connectToImgur($file);
 				echo "<pre>".print_r(json_decode($this->data)->data,true)."</pre>";
 				exit;
+				
 			} elseif ($file["error"] != 4) {
 				if (static::error($file) == false) {
 					if (strlen($this->uploadSize) != 0) {
@@ -147,13 +175,16 @@
 			} else {
 				$this->errors[] = "No image selected.";
 			}
+			
 			if (count($this->errors) > 0) {
 				throw new Exception;
 			} else {
 				return true;
 			}
+			
 		}
 
+		
 	}
 
 ?>
