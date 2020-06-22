@@ -37,7 +37,7 @@ try {
   }
 }
 ```
-This example above spits out the direct URL to the uploaded image at imgur.com. You may use this as a PRG pattern or whatever you like.
+This example above spits out the direct URL to the uploaded image at imgur.com. You may use this as a PRG pattern or whatever you like. The entire formdata that is sent back after successful upload can be viewed here: https://apidocs.imgur.com/?version=latest#2078c7e0-c2b8-4bc8-a646-6e544b087d0f
 
 <br>
 
