@@ -1,3 +1,8 @@
+# Demo
+---
+Clone this repository in order to test the demo locally.
+
+
 # Image Information
 ---
 ##### Copyright Free License https://unsplash.com/license 
