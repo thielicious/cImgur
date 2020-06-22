@@ -80,7 +80,7 @@ Use **print_r()** if you would like to view the whole response.<br>
 <br>
 <br>
 
-<!--:new: A **[Demo](https://jsfiddle.net/Thielicious/)** has been added.-->
+:new: A **[Demo](https://github.com/thielicious/cImgur/tree/master/demo)** has been added.
 
 <br>
 
