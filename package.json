@@ -1,0 +1,25 @@
+{
+  "name": "cimgur",
+  "version": "1.0.0",
+  "description": "Simple image uploader to imgur.com packed in a class.",
+  "main": "index.js",
+  "scripts": {
+    "test": ".cImgur - Test completed."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thielicious/cImgur.git"
+  },
+  "keywords": [
+    "imgur",
+    "php",
+    "image",
+    "upload"
+  ],
+  "author": "Thielicious",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thielicious/cImgur/issues"
+  },
+  "homepage": "https://github.com/thielicious/api.html#cimgur"
+}
