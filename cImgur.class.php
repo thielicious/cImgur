@@ -14,18 +14,14 @@
 	class cImgur {
 
 		public
-			$clientID = null,
-			$debug = 0;
+			$clientID = null,	$debug = 0;
 
 		private 
-			$imgWidth,	$imgHeight,
-			$uploadSize, $errors = [],
-			$data;
+			$imgWidth,		$imgHeight,		$uploadSize, 
+			$errors = [],		$data;
 
 		const 
-			RETURN_JSON = 1,
-			RETURN_ARRAY = 2,
-			RETURN_OBJECT = 3;
+			RETURN_JSON = 1,	RETURN_ARRAY = 2,	RETURN_OBJECT = 3;
 		
 		public function __construct(string $cid = null) {
 			if ($cid != null) {
