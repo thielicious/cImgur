@@ -24,7 +24,7 @@
 		
 			if (isset($_POST["upload"])) {
 				if (isset($_FILES["browse"])) {	
-					echo "test";
+				
 					try {
 						$imgur->upload($_FILES["browse"]);
 						$response = $imgur->data(cImgur::RETURN_OBJECT);
